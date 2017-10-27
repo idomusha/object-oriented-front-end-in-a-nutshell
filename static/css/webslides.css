@@ -989,7 +989,29 @@ p+.browser {
 }
 
 @media (min-width: 768px) {
-    .grid>.column {
+    /* one item */
+    .grid>.column:nth-child(1):nth-last-child(1) {
+        width: 100%;
+    }
+
+    /* two items */
+    .grid>.column:nth-child(1):nth-last-child(2),
+    .grid>.column:nth-child(2):nth-last-child(1) {
+        width: 50%;
+    }
+
+    /* three items */
+    .grid>.column:nth-child(1):nth-last-child(3),
+    .grid>.column:nth-child(2):nth-last-child(2),
+    .grid>.column:nth-child(3):nth-last-child(1) {
+        width: 33.3333%;
+    }
+
+    /* four items */
+    .grid>.column:nth-child(1):nth-last-child(4),
+    .grid>.column:nth-child(2):nth-last-child(3),
+    .grid>.column:nth-child(3):nth-last-child(2),
+    .grid>.column:nth-child(4):nth-last-child(1) {
         width: 25%;
     }
     .grid.sm .column:nth-child(1) {
@@ -2639,6 +2661,7 @@ footer .column h3 {
 
 .flexblock.gallery li {
     margin-bottom: 4.8rem;
+    background-color: #fff;
 }
 
 .flexblock.gallery li:nth-child(n+4) {
@@ -2650,6 +2673,7 @@ footer .column h3 {
 .flexblock.gallery li figcaption {
     padding: 1.6rem;
     position: relative;
+    margin-top: 0;
 }
 
 .flexblock.gallery li figcaption:before {
@@ -2707,6 +2731,9 @@ footer .column h3 {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    object-fit: cover;
+    max-height: 30vh;
+    width: 100%;
 }
 
 @media (min-width: 600px) {
@@ -3469,7 +3496,7 @@ cite span {
     }
     .text-quote p,
     .wall p {
-        font-size: 3.2rem;
+        font-size: 2.6rem;
         line-height: 4.8rem;
     }
     .text-quote:before,
@@ -4100,13 +4127,6 @@ screen and (max-width: 768px) and (orientation: landscape) {
         margin: .5cm;
         size: A4 landscape;
     }
-    * {
-        background: transparent !important;
-        color: #000 !important;
-        -webkit-filter: none !important;
-        filter: none !important;
-        text-shadow: none !important;
-    }
     html,
     body,
     #webslides {
@@ -4137,8 +4157,20 @@ screen and (max-width: 768px) and (orientation: landscape) {
     #navigation {
         display: none;
     }
+    section,
+    .slide {
+        display: flex !important;
+        height: auto !important;
+    }
+    section * {
+        -webkit-animation: none !important;
+        animation: none !important;
+    }
+    .title {
+        background-color: rgba(17, 34, 51, 0.2);
+        padding: 3rem;
+    }
 }
-
 
 /*=========================================
  19. Colors
@@ -4168,6 +4200,7 @@ svg {
 }
 
 .bg-black-yellow a,
+.bg-black-green a,
 .bg-black-pink a {
     color: #db3;
 }
@@ -4184,6 +4217,7 @@ a:hover {
 }
 
 .bg-black-yellow a:hover,
+.bg-black-green a:hover,
 .bg-black-pink a:hover {
     color: #f82;
 }
