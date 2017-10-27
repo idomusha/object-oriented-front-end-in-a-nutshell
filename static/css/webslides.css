@@ -2295,13 +2295,13 @@ a#previous {
     transform: translateY(-0.2rem);
 }
 
-@media (min-width: 600px) {
+@media only screen and (min-width: 600px) {
     .flexblock li {
         width: 50%;
     }
 }
 
-@media (min-width: 1024px) {
+@media only screen and (min-width: 1024px) {
     .flexblock li {
         width: 25%;
     }
