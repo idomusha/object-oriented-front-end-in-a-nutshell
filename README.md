@@ -2,7 +2,7 @@
 
 ### A repository of the presentation slides.
 
-## Demo
+## Presentation
 
 [See object-oriented front-end in a nutshell](http://idomusha.github.io/object-oriented-front-end-in-a-nutshell/)
 
