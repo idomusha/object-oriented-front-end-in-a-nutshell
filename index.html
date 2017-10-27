@@ -1,0 +1,1372 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- SEO -->
+    <title>Object-oriented front-end in a nutshell</title>
+    <meta name="description" content="WebSlides is the easiest way to make HTML presentations, portfolios, and landings. Just essential features.">
+
+    <!-- URL CANONICAL -->
+    <!-- <link rel="canonical" href="http://your-url.com/"> -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext"
+        rel="stylesheet">
+
+    <!-- CSS WebSlides -->
+    <link rel="stylesheet" type='text/css' media='all' href="static/css/webslides.css">
+
+    <!-- Optional - CSS SVG Icons (Font Awesome) -->
+    <link rel="stylesheet" type='text/css' media='all' href="static/css/svg-icons.css">
+
+    <!-- SOCIAL CARDS (ADD YOUR INFO) -->
+
+    <!-- FACEBOOK -->
+    <meta property="og:url" content="http://your-url.com/">
+    <!-- YOUR URL -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="">
+    <!-- EDIT -->
+    <meta property="og:description" content="">
+    <!-- EDIT -->
+    <meta property="og:updated_time" content="2017-01-04T17:20:50">
+    <!-- EDIT -->
+    <meta property="og:image" content="static/images/wool-ball.jpg">
+    <!-- EDIT -->
+
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@hankyoo">
+    <!-- EDIT -->
+    <meta name="twitter:creator" content="@hankyoo">
+    <!-- EDIT -->
+    <meta name="twitter:title" content="Object Oriented Design">
+    <!-- EDIT -->
+    <meta name="twitter:description" content="">
+    <!-- EDIT -->
+    <meta name="twitter:image" content="static/images/wool-ball.jpg">
+    <!-- EDIT -->
+
+    <!-- FAVICONS -->
+    <link rel="shortcut icon" sizes="16x16" href="static/images/favicons/favicon.png">
+    <link rel="shortcut icon" sizes="32x32" href="static/images/favicons/favicon-32.png">
+    <link rel="apple-touch-icon icon" sizes="76x76" href="static/images/favicons/favicon-76.png">
+    <link rel="apple-touch-icon icon" sizes="120x120" href="static/images/favicons/favicon-120.png">
+    <link rel="apple-touch-icon icon" sizes="152x152" href="static/images/favicons/favicon-152.png">
+    <link rel="apple-touch-icon icon" sizes="180x180" href="static/images/favicons/favicon-180.png">
+    <link rel="apple-touch-icon icon" sizes="192x192" href="static/images/favicons/favicon-192.png">
+
+    <!-- Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#333333">
+
+</head>
+
+<body>
+    <header role="banner">
+        <nav role="navigation">
+            <p class="logo">
+                <a href="index.html" title="Object-oriented front-end in a nutshell">Object-oriented front-end in a nutshell</a>
+            </p>
+            <ul>
+                <li class="github">
+                    <a rel="external" href="https://github.com/idomusha" title="Github">
+                        <svg>
+                            <use xlink:href="#fa-github"></use>
+                        </svg>
+                        <em>idomusha</em>
+                    </a>
+                </li>
+                <li class="twitter">
+                    <a rel="external" href="https://twitter.com/hankyoo" title="Twitter">
+                        <svg>
+                            <use xlink:href="#fa-twitter"></use>
+                        </svg>
+                        <em>@hankyoo</em>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main">
+        <article id="webslides" class="vertical">
+            <!-- Quick Guide
+          - Each parent <section> in the <article id="webslides"> element is an individual slide.
+          - Vertical sliding = <article id="webslides" class="vertical">
+          - <div class="wrap"> = container 90% / <div class="wrap size-50"> = 45%;
+          - Transitions on <div class="wrap">, add effect class: .fadeIn, .fadeInUp, .zoomIn, .slideInLeft or .slideInRight
+        -->
+
+            <section id="intro-1" class="bg-black">
+                <span class="background" style="background-image:url('static/images/jars.jpg');filter: grayscale(100%) brightness(33%);"></span>
+                <!--.wrap = container (width: 90%) -->
+                <div class="wrap alignleft">
+                    <h1>
+                        <strong>Consider the context,
+                            <br>break down into components,
+                            <br>write scalable, adaptable and maintainable code</strong>
+                    </h1>
+                    <p class="text-intro text-uppercase">Or why does context matter
+                        <br>and how split common design and functionalities into modular components?
+                    </p>
+                    <!-- <p>
+              <a href="" class="button zoomIn" title="Download WebSlides for free">
+                <svg>
+                  <use xlink:href="#fa-code-fork"></use>
+                </svg>
+                Get the slides on GitHub
+              </a>
+            </p> -->
+                </div>
+
+            </section>
+            <section>
+                <div class="wrap size-50">
+                    <h3>Table of Contents</h3>
+                    <hr>
+                    <div class="toc">
+                        <ol>
+                            <li>
+                                <a href="#prologue" title="Go to Prologue">
+                                    <span class="chapter">Prologue</span>
+                                    <span class="toc-page">01</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#slide=7" title="Go to Atomic Design">
+                                    <span class="chapter">Atomic Design</span>
+                                    <span class="toc-page">07</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#slide=23" title="Go to Content First — Design Last">
+                                    <span class="chapter">Content First — Design Last</span>
+                                    <span class="toc-page">23</span>
+                                </a>
+                                <!-- <ol>
+                      <li><a href="#" title="Go to Harmony"><span class="chapter">Harmony</span>
+                        <span class="toc-page">12</span></a>
+                      </li>
+                      <li><a href="#" title="Go to Simplicity vs. Clarity"><span class="chapter">Simplicity vs. Clarity</span>
+                        <span class="toc-page">14</span></a>
+                      </li>
+                    </ol> -->
+                            </li>
+                            <li>
+                                <a href="#slide=29" title="Go to Store & Share">
+                                    <span class="chapter">Store & Share</span>
+                                    <span class="toc-page">29</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#slide=34" title="Go to Object-Oriented &lt;code>">
+                                    <span class="chapter">Object-Oriented &lt;code></span>
+                                    <span class="toc-page">34</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#slide=44" title="Epilogue">
+                                    <span class="chapter">Epilogue</span>
+                                    <span class="toc-page">44</span>
+                                </a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+            </section>
+            <section id="prologue">
+                <div class="wrap size-70">
+                    <h2>The facts</h2>
+                    <br>
+                    <p class="text-intro">
+                        In front end web development and design the word "component" has been popping up more and more, from React.js components
+                        to new CSS class naming conventions to web components to style guides.
+                        <br> While the components which are now gaining in popularity are highly useful, the idea of breaking
+                        down systems into smaller, more modular parts (which is nothing new but is a fundamentally strong
+                        design pattern) can bring us huge benefits and allow for more unity between design and development.
+                        These concepts can stretch far and wide and are well worth exploring.
+                    </p>
+                </div>
+            </section>
+            <section class="bg-black-blue">
+                <div class="wrap" style="text-align: center;">
+                    <blockquote class="text-quote">
+                        <p>We’re not designing pages, we’re designing systems of components.</p>
+                        <p>
+                            <cite>
+                                <a href="http://twitter.com/stephenhay/">
+                                    <img class="avatar-56" src="static/images/stephen-hay.jpg" alt="Twavatar">
+                                </a> Stephen Hay
+                                <br>
+                                <a href="http://twitter.com/stephenhay/" style="font-size: 1.8rem; position: relative; top: -2rem; left: 2.4rem;">@stephenhay</a>
+                            </cite>
+                        </p>
+                    </blockquote>
+                </div>
+            </section>
+            <section>
+                <div class="wrap">
+                    <div class="content-center">
+                        <h3>So&hellip; what is a component?</h3>
+                        <ul class="flexblock specs">
+                            <li>
+                                <div>
+                                    <h2>
+                                        <svg>
+                                            <use xlink:href="#fa-long-arrow-right"></use>
+                                        </svg>
+                                        component
+                                    </h2>
+                                    A part or element of a larger whole
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="wrap size-50 aligncenter">
+                    <h2>
+                        <strong>What for?</strong>
+                    </h2>
+                    <p class="text-intro">Consistency, re-usability, scalability</p>
+                    <div class="bg-white shadow">
+                        <ul class="flexblock reasons">
+                            <li>
+                                <h2>Write less code</h2>
+                                <p>The code doesn't grow with the project but only with new components.</p>
+                            </li>
+                            <li>
+                                <h2>Work better, faster.</h2>
+                                <p>Create new elements with HTML only. Just reuse what has been already lined up.</p>
+                            </li>
+                            <li>
+                                <h2>Anticipate easier</h2 <p>Each component is independent from its context. They can move anywhere
+                                because they aren't defined by their location.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section id="section-7" class="bg-gradient-v">
+                <span class="background dark" style="background-image:url('static/images/atomic-design.jpg')"></span>
+                <div class="wrap size-60">
+                    <p class="text-context text-uppercase">Methodology</p>
+                    <h2>Atomic Design</h2>
+                </div>
+            </section>
+            <section class="bg-black aligncenter">
+                <div class="wrap size-70">
+                    <figure>
+                        <img src="static/images/atomic-design.svg" alt="">
+                    </figure>
+                </div>
+            </section>
+            <section class="aligncenter">
+                <div class="wrap size-70">
+                    <div class="grid ms vertical-align">
+                        <div class="column">
+                            <figure>
+                                <img src="static/images/atomic-design-atoms.png" alt="">
+                            </figure>
+                        </div>
+                        <div class="column content-left">
+                            <h3>Atoms</h3>
+                            <p>are UI elements that can’t be broken down any further and serve as the elemental building blocks
+                                of an interface.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="aligncenter bg-black-blue">
+                <div class="wrap size-30">
+                    <figure>
+                        <p>
+                            <code>&lt;label></code>
+                            <code>&lt;input></code>
+                            <code>&lt;button></code>
+                        </p>
+                        <img src="static/images/atoms-form-elements.png" alt="">
+                        <figcaption>
+                            <h2>Atoms</h2>
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+            <section class="aligncenter">
+                <div class="wrap size-70 fadeIn">
+                    <div class="grid ms vertical-align">
+                        <div class="column">
+                            <figure>
+                                <img src="static/images/atomic-design-molecules.png" alt="">
+                            </figure>
+                        </div>
+                        <div class="column content-left">
+                            <h3>Molecules</h3>
+                            <p>are collections of atoms that form relatively simple UI components.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="aligncenter bg-black-blue">
+                <div class="wrap size-30">
+                    <figure>
+                        <p>
+                            <code>&lt;form></code>
+                        </p>
+                        <img src="static/images/molecule-search-form.png" alt="">
+                        <figcaption>
+                            <h2>Molecule</h2>
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+            <section class="aligncenter">
+                <div class="wrap size-70 fadeIn">
+                    <div class="grid ms vertical-align">
+                        <div class="column">
+                            <figure>
+                                <img src="static/images/atomic-design-organisms.png" alt="">
+                            </figure>
+                        </div>
+                        <div class="column content-left">
+                            <h3>Organisms</h3>
+                            <p>are relatively complex components that form discrete sections of an interface.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="aligncenter bg-black-blue">
+                <div class="wrap size-70">
+                    <figure>
+                        <p>
+                            <code>&lt;header></code>
+                        </p>
+                        <img src="static/images/organism-header.png" alt="">
+                        <figcaption>
+                            <h2>Organism</h2>
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+            <section class="aligncenter">
+                <div class="wrap size-70 fadeIn">
+                    <div class="grid ms vertical-align">
+                        <div class="column">
+                            <figure>
+                                <img src="static/images/atomic-design-templates.png" alt="">
+                            </figure>
+                        </div>
+                        <div class="column content-left">
+                            <h3>Templates</h3>
+                            <p>place components within a layout and demonstrate the design’s underlying content structure.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="aligncenter bg-black-blue">
+                <div class="wrap size-70">
+                    <figure>
+                        <img src="static/images/template.png" alt="">
+                        <figcaption>
+                            <h2>Template</h2>
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+            <section class="aligncenter">
+                <div class="wrap fadeIn">
+                    <div class="grid ms vertical-align">
+                        <div class="column">
+                            <figure>
+                                <img src="static/images/atomic-design-pages.png" alt="">
+                            </figure>
+                        </div>
+                        <div class="column content-left">
+                            <h3>Pages</h3>
+                            <p>apply real content to templates and articulate variations to demonstrate the final UI and test
+                                the resilience of the design system.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="aligncenter bg-black-blue">
+                <div class="wrap size-70">
+                    <figure>
+                        <img src="static/images/page.png" alt="">
+                        <figcaption>
+                            <h2>Page</h2>
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+            <section class="aligncenter bg-black">
+                <div class="wrap size-70">
+                    <div class="embed">
+                        <video autoplay loop muted poster="static/images/atomic-design.svg">
+                            <source src="static/videos/atomic-design.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <!-- .end .embed -->
+                </div>
+            </section>
+            <section>
+                <div class="wrap size-50">
+                    <h2>The part and the whole</h2>
+                    <p class="text-intro">One of the biggest advantages atomic design provides is the ability to quickly shift between abstract
+                        and concrete.</p>
+                    <p>We can simultaneously see our interfaces broken down to their atomic elements and also see how those
+                        elements combine together to form our final experiences.</p>
+                </div>
+            </section>
+            <section id="intro-3" class="bg-black-blue">
+                <!--.wrap = container (width: 90%) -->
+                <div class="wrap">
+                    <blockquote class="text-quote">
+                        <p>
+                            The painter, when at a distance from the easel, can assess and analyze the whole of the work from this vantage. He scrutinizes
+                            and listens, chooses the next stroke to make, then approaches the canvas to do it. Then, he steps
+                            back again to see what he’s done in relation to the whole. It is a dance of switching contexts,
+                            a pitter-patter pacing across the studio floor that produces a tight feedback loop between mark-making
+                            and mark-assessing.
+                        </p>
+                        <p>
+                            <cite>
+                                <a href="http://twitter.com/frank_chimero/">
+                                    <img class="avatar-56" src="static/images/frank_chimero.jpg" alt="Twavatar">
+                                </a> Frank Chimero
+                                <br>
+                                <a href="http://twitter.com/frank_chimero/" style="font-size: 1.8rem; position: relative; top: -2rem; left: 2.4rem;">@frank_chimero</a>
+                            </cite>
+                        </p>
+                    </blockquote>
+                </div>
+
+            </section>
+            <section>
+                <div class="wrap size-70">
+                    <h2>Atomic design is not a linear process</h2>
+                    <p class="text-intro">Think of the stages of atomic design as a mental model that allows us to think of our user interfaces
+                        as both a cohesive whole and a collection of parts at the same time.</p>
+                </div>
+            </section>
+
+            <section id="content-first" class="bg-gradient-v">
+                <span class="background dark" style="background-image:url('static/images/keep-clear.jpg')"></span>
+                <div class="wrap size-60">
+                    <p class="text-context text-uppercase">Cutting design files</p>
+                    <h2>Content First — Design Last</h2>
+                </div>
+
+            </section>
+            <section>
+                <div class="wrap">
+                    <div class="content-center">
+                        <p class="text-intro">
+                            With a content-first approach, we move from designing without content to designing based on content — a very important distinction.
+                            <br>
+                            <br> Remember the definition of semantic HTML:
+                            <br>
+                            <br>
+                        </p>
+                    </div>
+                    <h3 class="text-landing aligncenter">
+                        giving meaning to content
+                    </h3>
+                    <br>
+                    <br>
+                    <br>
+                    <ul class="flexblock steps">
+                        <li>
+                            <span>
+                                <svg>
+                                    <use xlink:href="#fa-align-left"></use>
+                                </svg>
+                            </span>
+                            <h2 class="text-uppercase" style="text-align: center;">Content</h2>
+                        </li>
+                        <li>
+                            <div class="process step-2"></div>
+                            <span>
+                                <svg>
+                                    <use xlink:href="#fa-code"></use>
+                                </svg>
+                            </span>
+                            <h2 class="text-uppercase" style="text-align: center;">HTML</h2>
+                        </li>
+                        <li>
+                            <div class="process step-3"></div>
+                            <span>
+                                <svg>
+                                    <use xlink:href="#fa-paint-brush"></use>
+                                </svg>
+                            </span>
+                            <h2 class="text-uppercase" style="text-align: center;">Design</h2>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="bg-black">
+                <div class="wrap">
+                    <h2>Really think about what’s important</h2>
+                    <p class="text-intro">Before we start writing HTML, we need to determine what content to present on the page and how to prioritize
+                        it.
+                    </p>
+                    <br>
+                    <br>
+                    <p>
+                        <code>&lt;nav></code>
+                        <code>&lt;main></code>
+                        <code>&lt;aside></code>
+                        <code>&lt;article></code>
+                        <code>&lt;section></code>
+                    </p>
+                </div>
+            </section>
+            <section class="aligncenter">
+                <div class="wrap size-60">
+                    <figure>
+                        <img src="static/images/dashboard.png" alt="Wofsus Dashboard">
+                        <figcaption>
+                            <a href="https://dribbble.com/shots/3530350-Wofsus-Dashboard-Freebie" target="_blank" title="Wofsus Dashboard">Wofsus Dashboard</a> by Sajal Jahan (2017)
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+            <section>
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column aligncenter">
+                            <h3>
+                                <strong>What's this element?</strong>
+                            </h3>
+                            <br>
+                            <br>
+                            <a href="https://www.smashingmagazine.com/2012/06/links-should-never-say-click-here/" target="_blank" class="button zoomIn text-uppercase"
+                                title="Button" style="width: 200px; margin: 0 auto;">
+                                Click here
+                            </a>
+                        </div>
+                        <div class="column">
+                            <pre>
+
+&lt;button type="button" onclick="location.href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button';">Click here&lt;/button>
+
+&lt;a class="button" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a">Click here!&lt;/a>
+
+                        </pre>
+                        </div>
+                    </div>
+                    <hr>
+                    <h3>#RTFD</h3>
+                    <br>
+                    <br>
+                    <p>
+                        The HTML
+                        <code>&lt;button></code> element creates an interactive control.
+                        <br> The HTML
+                        <code>&lt;a></code> element (or anchor element) creates a hyperlink to other web pages, files, locations within the
+                        same page, email addresses, or any other URL.
+                    </p>
+                </div>
+            </section>
+            <section>
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column aligncenter">
+                            <h3>
+                                <strong>What's about design?</strong>
+                            </h3>
+                            <br>
+                            <br>
+                            <a href="https://www.smashingmagazine.com/2012/06/links-should-never-say-click-here/" target="_blank" class="button zoomIn text-uppercase"
+                                title="Button" style="width: 200px; margin: 0 auto;">
+                                Click here
+                            </a>
+                        </div>
+                        <div class="column">
+                            <pre style="max-height: 70vh;">
+// it could be a &lt;button>, &lt;a>, &lt;span>, &lt;div> or whatever
+
+.button {
+
+    // reset user agent stylesheet
+    border: 0 none;
+    text-shadow: none;
+    box-shadow: none;
+    background-color: transparent;
+    color: black;
+
+    // common styles
+    margin: 0;
+    padding: 0 20px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color .3s ease;
+
+    // specific styles
+    &.fill-blue {
+        background-color: blue;
+        color: #fff;
+    }
+
+    // styles according to context
+    + .button {
+        margin-left: 10px;
+    }
+
+}
+                        </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Store & Share -->
+            <section id="store-share" class="bg-gradient-v">
+                <span class="background dark" style="background-image:url('static/images/share.jpg')"></span>
+                <div class="wrap size-60">
+                    <p class="text-context text-uppercase">Style guide</p>
+                    <h2>Store & Share</h2>
+                </div>
+            </section>
+            <section class="bg-black">
+                <!--.wrap = container (width: 90%) -->
+                <div class="wrap">
+                    <h3>
+                        A front-end style guide is both a
+                        <strong>deliverable</strong> created by the UX team (in concert with the engineering team, typically) and
+                        a
+                        <strong>tool</strong> used by the entire team for maintaining consistent, nimble product design in a modular
+                        format.
+                    </h3>
+                </div>
+            </section>
+            <section class="bg-black-green">
+                <!--.wrap = container (width: 90%) -->
+                <div class="wrap">
+                    <h2>What is a style guide?</h2>
+                    <br>
+                    <br>
+                    <br>
+                    <blockquote class="text-quote">
+                        <p>
+                            A style guide is a living document of code, which details all the various elements and coded modules of your site or application.
+                            Beyond its use in consolidating the front-end code, it also documents the visual language, such
+                            as header styles and color palettes, used to create the site. This way, it’s a one-stop place
+                            for the entire team—from product owners and producers to designers and developers—to reference
+                            when discussing site changes and iterations.
+                        </p>
+                        <p>
+                            <cite>
+                                <a href="http://twitter.com/susanjrobertson/">
+                                    <img class="avatar-56" src="static/images/susanjrobertson.jpg" alt="Twavatar">
+                                </a> Susan Robertson
+                                <br>
+                                <a href="http://twitter.com/susanjrobertson/" style="font-size: 1.8rem; position: relative; top: -2rem; left: 2.4rem;">@susanjrobertson</a>
+                            </cite>
+                        </p>
+                    </blockquote>
+                </div>
+
+            </section>
+            <section>
+                <div class="wrap">
+                    <h2>Why should we use a style guide?</h2>
+                    <p class="text-intro">As your team grows and changes over time, your style guide will help you in several ways.</p>
+                    <ul class="flexblock">
+                        <li>
+                            <div>
+                                <span>First,</span>
+                                <p>
+                                    Creating your guide will take some time up front, but I’ve found that this pays off with
+                                    <strong>faster build times for new sections and pages</strong>, because anyone joining an ongoing
+                                    project can refer to the guide for the exact styles to use.
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span>Second,</span>
+                                <p>
+                                    A guide allows us to
+                                    <strong>standardize the CSS, keeping it small and quick to load</strong>. By using the guide
+                                    as an inventory of modules and code, both designers and developers can quickly see if
+                                    new designs deviate from established standards, and decide as a team if it’s worth expanding
+                                    the codebase or if something already written is easily extended. When you have no guide,
+                                    this is impossible, which usually means that new styles are written—resulting in bloated
+                                    CSS.
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <spanh2>Third,</span>
+                                    <p>
+                                        <strong>Design consistency is easier to maintain</strong>, as the designer can look in one
+                                        place to reference the site’s components and ensure a cohesive look and feel throughout.
+                                        This is especially helpful on larger teams and at enterprise-level companies where
+                                        you may have an entire team of designers working on the site. And when design consistency
+                                        is maintained, the codebase is also kept smaller.
+                                    </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <br>
+                    <div class="content-center">
+                        <span class="text-uppercase">A real life example</span>
+                        <br>
+                        <br>
+                        <a href="https://www.azureva-vacances.com/styleguide/" target="_blank" class="button zoomIn" title="Style guide IRL">
+                            <svg>
+                                <use xlink:href="#fa-file-o"></use>
+                            </svg>
+                            <span>Azureva style guide</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-black-blue">
+                <div class="wrap">
+                    <h2>Benefits</h2>
+                    <ul class="flexblock features">
+                        <li>
+                            <div>
+                                <h2>ACCURATE OVERVIEW OF THE UI</h2>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h2>DEVELOPMENT PLAYGROUND</h2>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h2>KICKSTART FOR NEW PAGES</h2>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h2>SIMPLIFIED TESTING</h2>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h2>COMPONENT CULTURE</h2>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h2>COMMUNICATION BENEFITS</h2>
+                            </div>
+                        </li>
+                    </ul>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="content-center">
+                        <span class="text-uppercase">Get started</span>
+                        <br>
+                        <br>
+                        <a href="http://bbrochier.github.io/styleguide-boilerplate" target="_blank" class="button zoomIn" title="A boilerplate for creating your own custom style guide">
+                            <svg>
+                                <use xlink:href="#fa-github"></use>
+                            </svg>
+                            <span>Download/fork style guide boilerplate</span>
+                        </a>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Object-Oriented <code> -->
+            <section id="store-share" class="bg-gradient-v">
+                <span class="background dark" style="background-image:url('static/images/shape.png')"></span>
+                <div class="wrap size-60">
+                    <p class="text-context text-uppercase">Approach</p>
+                    <h2>Object-Oriented &lt;code></h2>
+                </div>
+            </section>
+            <section class="bg-black-pink">
+                <div class="wrap">
+                    <div class="content-center">
+                        <h3>Object-oriented definition</h3>
+                    </div>
+                    <hr>
+                    <div class="aligncenter text-landing">
+                        <h1>
+                            Which one?
+                        </h1>
+                        <a href="http://wiki.c2.com/?NobodyAgreesOnWhatOoIs" target="_blank">Nobody Agrees On What OO Is</a>
+                    </div>
+                    <hr>
+                    <div class="content-center">
+                        <h4>
+                            <svg>
+                                <use xlink:href="#fa-key"></use>
+                            </svg>
+                            3 principles
+                        </h4>
+                    </div>
+                    <ul class="flexblock features">
+                        <li>
+                            <div>
+                                <h2>
+                                    <svg>
+                                        <use xlink:href="#fa-archive"></use>
+                                    </svg>
+                                    Encapsulation
+                                </h2>
+                                <em>enforces Modularity</em>
+                                <br> Encapsulation is the idea that the attributes of an entity are enclosed in that entity.
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h2>
+                                    <svg>
+                                        <use xlink:href="#fa-long-arrow-down"></use>
+                                    </svg>
+                                    Inheritance
+                                </h2>
+                                <em>passes "knowledge" down</em>
+                                <br> Inheritance is the idea that an entity can inherit attributes from another entity.
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h2>
+                                    <svg>
+                                        <use xlink:href="#fa-arrows-alt"></use>
+                                    </svg>
+                                    Polymorphism
+                                </h2>
+                                <em>takes any shape</em>
+                                <br> Polymorphism means “having many forms”: when any thing perform more than type of task.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <div class="wrap">
+                    <div class="content-center">
+                        <h3>What is an object?</h3>
+                        <ul class="flexblock specs">
+                            <li>
+                                <div>
+                                    <h2>
+                                        <svg>
+                                            <use xlink:href="#fa-long-arrow-right"></use>
+                                        </svg>
+                                        object
+                                    </h2>
+                                    In essence, an object is a discrete entity that has only the necessary dependencies on other objects to perform its tasks.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section id="intro-3" class="bg-black-blue">
+                <div class="wrap">
+                    <blockquote class="text-quote">
+                        <p style="font-size: 2.2rem;">
+                            Objects are like people. They’re living, breathing things that have knowledge inside them about how to do things and have
+                            memory inside them so they can remember things. And rather than interacting with them at a very
+                            low level, you interact with them at a very high level of abstraction, like we’re doing right
+                            here.
+                            <br>
+                            <br> Here’s an example: if I’m your laundry object, you can give me your dirty clothes and send me
+                            a message that says, “Can you get my clothes laundered, please.” I happen to know where the best
+                            laundry place in San Francisco is. And I speak English, and I have dollars in my pockets. So
+                            I go out and hail a taxicab and tell the driver to take me to this place in San Francisco. I
+                            go get your clothes laundered, I jump back in the cab, I get back here. I give you your clean
+                            clothes and say, “Here are your clean clothes.”
+                            <br>
+                            <br> You have no idea how I did that. You have no knowledge of the laundry place. Maybe you speak
+                            French, and you can’t even hail a taxi. You can’t pay for one, you don’t have dollars in your
+                            pocket. Yet, I knew how to do all of that. And you didn’t have to know any of it. All that complexity
+                            was hidden inside of me, and we were able to interact at a very high level of abstraction. That’s
+                            what objects are. They encapsulate complexity, and the interfaces to that complexity are high
+                            level.
+                        </p>
+                        <p>
+                            <cite>
+                                Steve Jobs
+                            </cite>
+                        </p>
+                    </blockquote>
+                </div>
+            </section>
+            <section class="bg-gradient-v aligncenter">
+                <div class="wrap">
+                    <h2 class="text-landing">What about front-end?</h2>
+                </div>
+            </section>
+            <section class="bg-black-yellow">
+                <div class="wrap size-80">
+                    <!-- [class*="content-"] = container max-width:50% = 600px -->
+                    <div>
+                        <h2>Everything starts with</h2>
+                        <br>
+                        <br>
+                        <h1>
+                            <strong>
+                                <a href="http://oocss.org/">HTML</a>
+                            </strong>
+                        </h1>
+                        <p class="text-intro">
+                            To build websites, you should know about HTML.
+                        </p>
+                        <h4>Place to learn?</h4>
+                        <br>
+                        <ul class="flexblock features">
+                            <li>
+                                <div>
+                                    <p class="title">
+                                        <strong>
+                                            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">MDN</a>
+                                        </strong>
+                                    </p>
+                                    <p class="summary">
+                                        The main entry point for HTML documentation, including detailed element and attribute references — if you want to know what
+                                        attributes an element has or what values an attribute has, for example, this is a
+                                        great place to start.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                        <h4>Why learn?</h4>
+                        <p>
+                            Semantics tags have many benefits beyond pure efficiency, <a href="https://www.smashingmagazine.com/2014/05/mobile-accessibility-why-care-what-can-you-do/" target="_blank" title="Mobile And Accessibility: Why You Should Care And What You Can Do About It">device compatibility</a> and SEO. They help us build better site structures, make all programmatic
+                            interaction and manipulation much easier, and more importantly, they can seriously improve websites’ <a href="https://pixelpioneers.co/blog/2017/13-expert-tips-accessibility" target="_blank" title="Tips for making accessibility a core design principle">accessibility</a>.
+                        </p>
+                    </div>
+                    <!-- end .content-center -->
+                </div>
+            </section>
+            <section>
+                <div class="wrap size-80">
+                    <!-- [class*="content-"] = container max-width:50% = 600px -->
+                    <div>
+                        <h2>CSS from scratch</h2>
+                        <br>
+                        <br>
+                        <h4 class="text-uppercase">Methodologies</h4>
+                        <ul class="flexblock activity">
+                            <li>
+                                <p class="title">
+                                    <a href="http://oocss.org/" target="_blank">OOCSS</a>
+                                </p>
+                                <p class="summary">
+                                    Object-oriented CSS &mdash; Separating container and content with CSS “objects”
+                                </p>
+                            </li>
+                            <li>
+                                <p class="title">
+                                    <a href="https://en.bem.info/" target="_blank">BEM</a>
+                                </p>
+                                <p class="summary">
+                                    Block Element Modifier &mdash; Structured way of naming your classes, based on properties of the element in question
+                                </p>
+                            </li>
+                            <li>
+                                <p class="title">
+                                    <a href="https://smacss.com/" target="_blank">SMACSS</a>
+                                </p>
+                                <p class="summary">
+                                    Scalable and Modular Architecture for CSS &mdash; Style-guide to write your CSS with five categories for CSS rules
+                                </p>
+                            </li>
+                        </ul>
+                        <br>
+                        <p class="text-intro">
+                            No matter what methodology you choose to use in your projects, you will benefit from the advantages of more structured CSS
+                            and UI. Some styles are less strict and more flexible, while others are easier to understand
+                            and adapt in a team.
+                        </p>
+                        <p>
+                            For further reading:
+                            <a href="https://www.smashingmagazine.com/2011/12/an-introduction-to-object-oriented-css-oocss/" target="_blank">An Introduction To Object Oriented CSS (OOCSS)</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-black-yellow">
+                <div class="wrap size-80">
+                    <h2>Front-end frameworks</h2>
+                    <ul class="flexblock features">
+                        <li>
+                            <div>
+                                <h2 style="text-align: center;">
+                                    <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>
+                                </h2>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h2 style="text-align: center;">
+                                    <a href="http://foundation.zurb.com/" target="_blank">Foundation</a>
+                                </h2>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h2 style="text-align: center;">
+                                    <a href="https://semantic-ui.com/" target="_blank">Semantic UI</a>
+                                </h2>
+                            </div>
+                        </li>
+                    </ul>
+                    <p>
+                        For sites that need to be heavily customized or introduce a new kind of interaction that isn’t standard, it may take longer
+                        to customize a framework than to build from scratch.
+                    </p>
+                </div>
+            </section>
+            <section>
+                <div class="wrap">
+                    <div class="grid vertical-align">
+                        <div class="column">
+                            <figure>
+                                <img class="aligncenter" src="static/images/learning-javascript-design-patterns.jpg" alt="Learning JavaScript Design Patterns">
+                            </figure>
+                        </div>
+                        <div class="column">
+                            <h1>
+                                JavaScript Module Pattern
+                            </h1>
+                            <br>
+                            <p>
+                                <a class="button text-uppercase" href="https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternJavaScript">Read the Ebook</a>
+                            </p>
+                        </div>
+                    </div>
+                    <p>
+                        For further reading:
+                        <a href="https://github.com/getify/You-Dont-Know-JS" target="_blank">You Don't Know JS</a>, a series of books diving deep into the core mechanisms of the JavaScript language.
+                    </p>
+                </div>
+            </section>
+            <section class="bg-black-yellow">
+                <div class="wrap size-80">
+                    <h2>JavaScript libraries</h2>
+                    <ul class="flexblock clients">
+                        <li>
+                            <a href="https://angular.io/">
+                                <figure>
+                                    <img src="static/images/logos/vue.svg" alt="Vue.js">
+                                    <figcaption>
+                                        <h3>Vue.js</h3>
+                                        <p>"The cool kid on the block"</p>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://reactjs.org/">
+                                <figure>
+                                    <img src="static/images/logos/react.svg" alt="React.js">
+                                    <figcaption>
+                                        <h3>React.js</h3>
+                                        <p>"Leading the satisfaction statistics"</p>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://angular.io/">
+                                <figure>
+                                    <img src="static/images/logos/angular.svg" alt="Angular">
+                                    <figcaption>
+                                        <h3>Angular</h3>
+                                        <p>"Wisdom of elders"</p>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                    </ul>
+                    <br><br><br>
+                    <p>
+                        For further reading:
+                        <a href="https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176" target="_blank">Angular vs. React vs. Vue: A 2017 comparison</a>
+                    </p>
+                </div>
+            </section>
+            <section id="epilogue">
+                <div class="wrap size-70">
+                    <p class="text-intro">Whether you're building a JavaScript application, crafting some CSS or designing a website there are
+                        common themes of what a component is.</p>
+                    <ul class="flexblock specs">
+                        <li>
+                            <h2>
+                                Independent
+                            </h2>
+                            Components should be able to be used on their own and rely on only a limited set of dependencies. They should be built so
+                            they don't 'leak' or cross-over into other components.
+                        </li>
+                        <li>
+                            <h2>
+                                Clearly defined
+                            </h2>
+                            Useful but limited scope - E.g a 'button' component + a 'search box' component is better than a 'navbar' component, but a
+                            search button and search input shouldn't be split up into two separate components if they'll
+                            never be used independently.
+                        </li>
+                        <li>
+                            <h2>
+                                Encapsulated
+                            </h2>
+                            Components should 'wrap up' their functionality within themselves and provide set ways of implementation. E.g a button component
+                            could expose "size" and "colour" options.
+                        </li>
+                        <li>
+                            <h2>
+                                Reusable
+                            </h2>
+                            Components are often built with reusability in mind, although they may initially only be implemented once.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="bg-apple">
+                <div class="wrap">
+
+                    <p class="text-intro">
+                        Componentising our front end has some immediate major advantages, such as:
+                    </p>
+                    <ul class="flexblock features">
+                        <li>
+                            <div>
+                                <h2>
+                                    <svg>
+                                        <use xlink:href="#fa-arrows-h"></use>
+                                    </svg>
+                                    Consistency
+                                </h2>
+                                Implementing reusable components helps keep design consistent and can provide clarity in organising code.
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h2>
+                                    <svg>
+                                        <use xlink:href="#fa-code"></use>
+                                    </svg>
+                                    Maintainability
+                                </h2>
+                                A set of well organised components can be quick to update, and you can be more confident about which areas will and won't
+                                be affected.
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h2>
+                                    <svg>
+                                        <use xlink:href="#fa-level-up"></use>
+                                    </svg>
+                                    Scalability
+                                </h2>
+                                Having a library of components to implement can make for speedy development, and ensuring components are properly namespaced
+                                helps to avoid styles and functionality leaking into the wrong place as projects scale.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="slide-bottom">
+                <div class="wrap">
+                    <div class="content-center text-serif">
+                        <h2>
+                            <svg>
+                                <use xlink:href="#fa-hourglass-end"></use>
+                            </svg>
+                            <strong>Thanks.</strong>
+                            <!-- <a target="_blank" title="Share on Twitter" href="https://twitter.com/intent/tweet?text=Object%20Oriented%20Design%20&mdash;%20https://github.com/idomusha">
+                  <svg class="fa-twitter">
+                    <use xlink:href="#fa-twitter"></use>
+                  </svg>
+                </a> -->
+                        </h2>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-black">
+                <div class="wrap">
+                    <p class="text-landing" style="margin-left: calc(2.4rem + 3.2vw);">
+                        This is not
+                        <strike>fresh</strike>
+                        <br> an original content
+                    </p>
+                    <h4 class="text-serif" style="margin-left: calc(2.4rem + 3.2vw);">
+                        <svg>
+                            <use xlink:href="#fa-external-link"></use>
+                        </svg>
+                        <strong>Sources</strong>
+                    </h4>
+                    <br>
+                    <br>
+                    <ul class="flexblock activity fixed">
+                        <li>
+                            <p class="title">
+                                Prologue, Epilogue
+                            </p>
+                            <ul class="summary">
+                                <li>
+                                    <a href="http://www.hedleysmith.com/posts/thinking_in_components.html" target="_blank" title="Thinking in Components">Thinking in Components</a> by Hedley Smith (2015)
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p class="title">
+                                Atomic Design
+                            </p>
+                            <ul class="summary">
+                                <li>
+                                    <a href="http://bradfrost.com/blog/post/atomic-web-design/" target="_blank" title="Atomic Design">Atomic Design</a> by Brad Frost (2013)
+                                </li>
+                                <li>
+                                    <a href="http://patternlab.io/" target="_blank" title="Pattern Lab">Pattern Lab</a> by Dave Olsen and Brian Muenzenmeyer (2017)
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p class="title">
+                                Content First — Design Last
+                            </p>
+                            <ul class="summary">
+                                <li>
+                                    <a href="https://www.smashingmagazine.com/2015/02/design-last/" target="_blank" title="Content First — Design Last">Content First — Design Last</a> by Rik Schennink (2015)
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p class="title">
+                                Store & Share
+                            </p>
+                            <ul class="summary">
+                                <li>
+                                    <a href="https://alistapart.com/article/creating-style-guides" target="_blank" title="Creating Style Guides">Creating Style Guides</a> by Susan Robertson (2014)
+                                </li>
+                                <li>
+                                    <a href="https://www.smashingmagazine.com/2015/03/automating-style-guide-driven-development/" target="_blank" title="Creating Style Guides">How To Automate Style Guide-Driven Development</a> by Varya Stepanova & Juuso Backman
+                                    (2015)
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p class="title">
+                                Object-Oriented &lt;code>
+                            </p>
+                            <ul class="summary">
+                                <li>
+                                    <a href="https://insanelab.com/blog/web-development/vue-react-angularjs-angular-javascript-frameworks/" target="_blank" title="Vue, React, AngularJS, and Angular2. Our take on popular JavaScript frameworks">Vue, React, AngularJS, and Angular2. Our take on popular JavaScript frameworks</a> by Antoni Żółciak (2017)
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="bg-black">
+                <div class="wrap">
+                    <h4 class="text-serif" style="margin-left: calc(2.4rem + 3.2vw);">
+                        <svg>
+                            <use xlink:href="#fa-creative-commons"></use>
+                        </svg>
+                        <strong>Credits</strong>
+                    </h4>
+                    <br>
+                    <br>
+                    <ul class="flexblock activity fixed">
+                        <li>
+                            <p class="title">
+                                Cover
+                            </p>
+                            <ul class="summary">
+                                <li>
+                                    <a href="https://www.flickr.com/photos/wibblefish/34456729042/" target="_blank" title="Jars">Jars</a> by wibblefish
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p class="title">
+                                Atomic Design
+                            </p>
+                            <ul class="summary">
+                                <li>
+                                    <a href="https://www.flickr.com/photos/yellow_bird_woodstock/6073235874/" target="_blank" title="molecular model">molecular model</a> by @yb_woodstock
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p class="title">
+                                Content First — Design Last
+                            </p>
+                            <ul class="summary">
+                                <li>
+                                    <a href="https://www.flickr.com/photos/dookington/5731018269/" target="_blank" title="Keep Clear">Keep Clear</a> by Tom Ducat-White
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p class="title">
+                                Store & Share
+                            </p>
+                            <ul class="summary">
+                                <li>
+                                    <a href="https://www.flickr.com/photos/dookington/5731018269/" target="_blank" title="Keep Clea">Keep Clear</a> by Tom Ducat-White
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p class="title">
+                                Object-Oriented &lt;code>
+                            </p>
+                            <ul class="summary">
+                                <li>
+                                    <a href="https://www.flickr.com/photos/42988571@N08/36838496752/" target="_blank" title="Lego Technic &quot;Truncated Octahedron&quot; sphere shape">Lego Technic "Truncated Octahedron" sphere shape</a> by David Luders
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+        </article>
+        <!-- end article -->
+    </main>
+    <!-- end main -->
+
+    <!-- A global footer
+
+     <footer role="contentinfo">
+      <div class="wrap">
+        <p>An <a href="https://github.com/webslides/webslides">open source solution</a>, by <a href="https://twitter.com/webslides">@webslides</a>.</p>
+      </div>
+    </footer>  -->
+
+    <!-- Required -->
+    <script src="static/js/webslides.js"></script>
+    <script>
+        window.ws = new WebSlides();
+    </script>
+
+    <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
+    <script defer src="static/js/svg-icons.js"></script>
+
+</body>
+
+</html>
