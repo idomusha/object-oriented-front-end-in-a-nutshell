@@ -2,9 +2,11 @@
 
 ### A repository of the presentation slides.
 
-## Presentation
+[See the presentation](http://idomusha.github.io/object-oriented-front-end-in-a-nutshell/)
 
-[See object-oriented front-end in a nutshell](http://idomusha.github.io/object-oriented-front-end-in-a-nutshell/)
+OR
+
+open the `index.html` at the root
 
 ## Export slides as PDF
 
@@ -46,7 +48,7 @@ cd decktape-1.0.0
 
 Launch the export command (replace the source URL and the destination path):
 ```
-./phantomjs decktape.js generic https://webslides.tv test.pdf
+./phantomjs decktape.js generic --keycode=Space --max-slides=48 https://idomusha.github.io/object-oriented-front-end-in-a-nutshell ../pdf/object-oriented-front-end-in-the-nutshell.pdf
 ```
 
 * * *
