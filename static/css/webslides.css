@@ -2255,6 +2255,7 @@ a#previous {
     margin-left: auto;
     margin-right: auto;
     padding: 0;
+    width: 100%;
 }
 
 .flexblock:after {
