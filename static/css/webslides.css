@@ -2288,7 +2288,6 @@ a#previous {
     text-align: left;
     -webkit-transition: .3s;
     transition: .3s;
-    width: 100%;
 }
 
 .flexblock:not(.fixed) li:hover {
@@ -2442,6 +2441,7 @@ footer .column h3 {
 .flexblock.clients.blink li>a,
 .flexblock.clients li {
     padding: 0;
+    margin: 1px;
 }
 
 .flexblock.clients li figcaption {
@@ -2457,11 +2457,13 @@ footer .column h3 {
     -webkit-box-pack: inherit;
     -ms-flex-pack: inherit;
     justify-content: inherit;
+    align-items: center;
+    text-align: center;
 }
 
 .clients li img,
 .clients li svg {
-    display: block;
+    display: inline-flex;
     padding: 2.4rem;
     max-width: 0;
     min-width: 20rem;
@@ -4173,7 +4175,7 @@ screen and (max-width: 768px) and (orientation: landscape) {
         -webkit-animation: none !important;
         animation: none !important;
     }
-    .title {
+    .overlay {
         background-color: rgba(17, 34, 51, 0.2);
         padding: 3rem;
     }
@@ -4604,6 +4606,10 @@ nav li.email a:hover {
 [class*='bg-'] .features li,
 [class*='bg-'] .clients li {
     background-color: rgba(255, 255, 255, 0.1);
+}
+[class*='bg-'] .features li p,
+[class*='bg-'] .clients li p {
+    color: #fff;
 }
 
 .features li:hover,
