@@ -4124,8 +4124,14 @@ screen and (max-width: 768px) and (orientation: landscape) {
 
 @media print {
     @page {
-        margin: .5cm;
-        size: A4 landscape;
+        size: 297mm 210mm; /* landscape */
+        margin: 25mm;
+        margin-right: 45mm; /* for compatibility with both A4 and Letter */
+        zoom: 75%;
+    }
+    html, body {
+        width: 210mm;
+        height: 297mm;
     }
     html,
     body,
