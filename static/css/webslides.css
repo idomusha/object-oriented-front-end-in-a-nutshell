@@ -285,7 +285,7 @@ hr {
 
 h2+hr,
 h3+hr {
-    margin-bottom: 4.8rem;
+    margin-bottom: 3.2rem;
 }
 
 p+hr {
@@ -2487,10 +2487,6 @@ footer .column h3 {
  About, Philosophy...
  =================================================== */
 
-.steps li {
-    width: 100%;
-}
-
 .steps li img,
 .steps li span {
     display: block;
@@ -2499,12 +2495,6 @@ footer .column h3 {
 
 .steps li span {
     font-size: 6.4rem;
-}
-
-@media (min-width: 768px) {
-    .steps li {
-        width: 50%;
-    }
 }
 
 @media (min-width: 1024px) {
@@ -2747,7 +2737,7 @@ footer .column h3 {
     .flexblock.gallery li {
         margin-left: 2%;
         margin-right: 2%;
-        width: 46%;
+        width: 29%;
     }
 }
 
@@ -4128,9 +4118,7 @@ screen and (max-width: 768px) and (orientation: landscape) {
 @media print {
     @page {
         size: 297mm 210mm; /* landscape */
-        margin: 25mm;
-        margin-right: 45mm; /* for compatibility with both A4 and Letter */
-        zoom: 75%;
+        margin: 0;
     }
     html, body {
         width: 210mm;
@@ -4175,9 +4163,27 @@ screen and (max-width: 768px) and (orientation: landscape) {
         -webkit-animation: none !important;
         animation: none !important;
     }
-    .overlay {
-        background-color: rgba(17, 34, 51, 0.2);
-        padding: 3rem;
+    .size-30 img {
+        max-height: 30vh;
+        max-width:  60vh;
+    }
+    .size-60 img {
+        max-height: 80vh;
+    }
+    pre {
+        max-height: 90vh !important;
+        font-size: 1.8rem;
+        line-height: 1.8rem;
+    }
+    blockquote.text-quote p[style]{
+        font-size: 1.8rem !important;
+        line-height: 3.6rem !important;
+    }
+    .flexblock.gallery img {
+        max-height: 27vh !important;
+    }
+    .flexblock.features li h2 {
+        font-size: 1.6rem;
     }
 }
 
